@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  <title>HangManGame</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+
+</script>
+</head>
+  <body>
+      <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-4 col-md-offset-4 top-label">
+                  <br>
+                  <h1>Guess the Letter I am Tinking!</h1>
+                    <h3> Press any key to get started!</h3>
+
+                  <hr>
+
+                  <ul>
+                      <li>
+                          Total Wins:
+                          <h3><span id="wins"></span></h3>
+                      </li>
+                      <li>
+                          Total Losses:
+                          <h3><span id="losses"></span></h3>
+                      </li>
+                      <li>
+                          Guess Remaining:
+                          <h3><span id="guesses-left"></span></h3>
+                      </li>
+                      <li>
+                          Letters Already Guessed:
+                          <h3><span id="letters-guessed"></span></h3>
+                      </li>
+
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+  <script type="text/javascript">
+    // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
+    var computerChoices = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r',
+    's','t','u','v','w','z','y','z'];
+
+    console.log("computer Choices is: " + computerChoices);
+
+    // Creating variables to hold the number of wins, losses, and ties. They start at 0.
+    var wins = 0;
+    var losses = 0;
+
+
+    // This function is run whenever the user presses a key.
+    document.onkeyup = function(event) {
+
+      // Determines which key was pressed.
+      var userGuess = event.key;
+
+      // Randomly chooses a choice from the options array. This is the Computer's guess.
+      var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)].toUpperCase();
+
+
+
+      // Reworked our code from last step to use "else if" instead of lots of if statements.
+
+      // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
+
+// if the user guess is = to computer guess then tally a win
+        // if userGuess === computerGuess {
+        //   wins++;
+        //
+        // }
+
+        // if user guess is not = to computer guess, the user should try again,
+        // the code should LOOP through all the number of guess attemps reamining.
+        // after all guess attemps are exhausted, tally a losses
+
+
+
+
+
+      // if ((userGuess === "r") || (userGuess === "p") || (userGuess === "s")) {
+      //
+      //   if ((userGuess === "r") && (computerGuess === "s")) {
+      //     wins++;
+      //   } else if ((userGuess === "r") && (computerGuess === "p")) {
+      //     losses++;
+      //   } else if ((userGuess === "s") && (computerGuess === "r")) {
+      //     losses++;
+      //   } else if ((userGuess === "s") && (computerGuess === "p")) {
+      //     wins++;
+      //   } else if ((userGuess === "p") && (computerGuess === "r")) {
+      //     wins++;
+      //   } else if ((userGuess === "p") && (computerGuess === "s")) {
+      //     losses++;
+      //   } else if (userGuess === computerGuess) {
+      //     ties++;
+      //   }
+
+        // Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
+        var html =
+          "<p>You chose: " + userGuess + "</p>" +
+          "<p>The Letter Is: " + computerGuess + "</p>" +
+          "<p>wins: " + wins + "</p>" +
+          "<p>losses: " + losses + "</p>" +
+          "<p>ties: " + ties + "</p>";
+
+        // Set the inner HTML contents of the #game div to our html string
+        document.querySelector("#game").innerHTML = html;
+
+    };
+  </script>
+
+</body>
+
+</html>
